@@ -2,8 +2,10 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-import pickle, os, smtplib
+import pickle, smtplib
 from email.mime.text import MIMEText
+import os
+os.environ["STREAMLIT_WATCHER_TYPE"] = "poll"
 
 # ---------- Email Alert Function ----------
 def send_email_alert(risk_score):
@@ -99,3 +101,4 @@ elif combined >= 0.4:
     st.warning("⚠️ MEDIUM RISK – Monitor closely.")
 else:
     st.success("✅ LOW RISK – Safe conditions.")
+
